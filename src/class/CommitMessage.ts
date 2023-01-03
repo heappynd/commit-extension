@@ -8,7 +8,7 @@ interface Configuration {
 function getConfiguration(): Configuration {
   const config = vscode.workspace
     .getConfiguration()
-    .get<Configuration>('commit')
+    .get<Configuration>('gocommit')
   return config!
 }
 

@@ -105,7 +105,7 @@ export class CommitMessage {
     })
 
     if (!input) {
-      return (this.#next = false)
+      return
     }
 
     this.scope = input

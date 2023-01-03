@@ -26,9 +26,9 @@
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Go commit configuration",
+      "title": "Got Commit configuration",
       "properties": {
-        "gocommit.jiraPrefix": {
+        "gotcommit.jiraPrefix": {
           "type": "string",
           "default": "",
           "description": "If this is set it will be will be displayed as the default JIRA ticket prefix"

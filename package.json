@@ -1,13 +1,13 @@
 {
-  "name": "commit-extension",
-  "displayName": "commit-extension",
+  "name": "got-commit",
+  "displayName": "Got Commit",
   "description": "",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "heappynd",
   "icon": "icons/git.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/heappynd/commit-extension.git"
+    "url": "https://github.com/heappynd/got-commit.git"
   },
   "license": "MIT",
   "author": {
@@ -21,7 +21,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:commit-extension.commit"
+    "onCommand:got-commit.commit"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -37,7 +37,7 @@
     },
     "commands": [
       {
-        "command": "commit-extension.commit",
+        "command": "got-commit.commit",
         "title": "Go commit",
         "icon": "icons/git.svg"
       }
@@ -46,7 +46,7 @@
       "scm/title": [
         {
           "when": "scmProvider == git",
-          "command": "commit-extension.commit",
+          "command": "got-commit.commit",
           "group": "navigation"
         }
       ]

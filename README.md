@@ -1,1 +1,1 @@
-# commit-extension README
+# got-commit README

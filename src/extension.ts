@@ -6,13 +6,13 @@ import { findLookupPath } from './utils'
 let channel: vscode.OutputChannel
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('your extension "commit-extension" is now active!')
+  console.log('your extension "got-commit" is now active!')
 
   channel = vscode.window.createOutputChannel('commit')
-  channel.appendLine('Commit extension started')
+  channel.appendLine('got-commit started')
 
   let disposable = vscode.commands.registerCommand(
-    'commit-extension.commit',
+    'got-commit.commit',
     async () => {
       const cm = new CommitMessage()
       if (cm.jiraPrefix) {

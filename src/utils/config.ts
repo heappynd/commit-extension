@@ -14,4 +14,5 @@ export const typePickItems: vscode.QuickPickItem[] = [
   },
   { label: 'test', description: '增加测试' },
   { label: 'chore', description: '构建过程或辅助工具的变动' },
+  { label: 'release', description: '发布版本' },
 ]

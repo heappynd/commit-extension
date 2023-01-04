@@ -2,7 +2,7 @@ import * as vscode from 'vscode'
 import { typePickItems } from '../utils/config'
 
 interface Configuration {
-  jiraPrefix: string
+  jiraPrefix: string[]
 }
 
 function getConfiguration(): Configuration {
@@ -21,14 +21,13 @@ export class CommitMessage {
   private breaking: string | undefined
   private footer: string | undefined
   // add JIRA support to commit
-  readonly jiraPrefix: string | undefined
+  private jiraPrefix: string | undefined
   private jiraIssue: number | undefined
   // a flag indicating whether operation is aborted
   #next = true
 
-  constructor() {
-    // maybe empty string
-    this.jiraPrefix = getConfiguration().jiraPrefix
+  get hasJira() {
+    return getConfiguration().jiraPrefix.length > 0
   }
 
   get message() {
@@ -51,6 +50,29 @@ export class CommitMessage {
 
   get completed() {
     return this.#next && this.type && this.subject
+  }
+
+  async getJiraPrefix() {
+    if (!this.#next) {
+      return
+    }
+
+    const items = getConfiguration().jiraPrefix
+
+    if (items.length > 1) {
+      const pick = await vscode.window.showQuickPick(items, {
+        placeHolder: 'select jira prefix',
+        matchOnDescription: true,
+        ignoreFocusOut: true,
+      })
+
+      if (!pick) {
+        return (this.#next = false)
+      }
+      this.jiraPrefix = pick
+    } else {
+      this.jiraPrefix = items[0]
+    }
   }
 
   async getJiraIssue() {

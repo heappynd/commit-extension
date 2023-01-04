@@ -15,7 +15,8 @@ export function activate(context: vscode.ExtensionContext) {
     'got-commit.commit',
     async () => {
       const cm = new CommitMessage()
-      if (cm.jiraPrefix) {
+      if (cm.hasJira) {
+        await cm.getJiraPrefix()
         await cm.getJiraIssue()
       }
       await cm.getType()

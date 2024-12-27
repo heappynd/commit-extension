@@ -29,7 +29,9 @@
       "title": "Got Commit configuration",
       "properties": {
         "gotcommit.jiraPrefix": {
-          "type": ["array"],
+          "type": [
+            "array"
+          ],
           "default": [],
           "description": "If this is set it will be will be displayed as the default JIRA ticket prefix"
         }
@@ -81,6 +83,7 @@
     "webpack-cli": "^5.0.0"
   },
   "dependencies": {
+    "conventional-commit-types": "^3.0.0",
     "execa": "^6.1.0"
   }
 }
